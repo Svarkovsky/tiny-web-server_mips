@@ -1,3 +1,9 @@
+John's Notes
+============
+
+I modified it to not do a directory listing. Instead, I tack on index.html. I also
+got rid of some compiler warnings.
+
 A tiny web server in C
 ======================
 
