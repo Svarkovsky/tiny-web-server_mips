@@ -236,7 +236,7 @@ int open_listenfd(int port){
        on any IP address for this host */
     memset(&serveraddr, 0, sizeof(serveraddr));
     serveraddr.sin_family = AF_INET;
-    serveraddr.sin_addr.s_addr = htonl(INADDR_ANY);
+    serveraddr.sin_addr.s_addr = htonl(INADDR_LOOPBACK);
     serveraddr.sin_port = htons((unsigned short)port);
     if (bind(listenfd, (SA *)&serveraddr, sizeof(serveraddr)) < 0)
         return -1;
@@ -337,7 +337,7 @@ void serve_static(int out_fd, int in_fd, http_request *req,
         if(sendfile(out_fd, in_fd, &offset, req->end - req->offset) <= 0) {
             break;
         }
-        printf("offset: %d \n\n", offset);
+        printf("offset: %ld \n\n", offset);
         close(out_fd);
         break;
     }
@@ -356,6 +356,17 @@ void process(int fd, struct sockaddr_in *clientaddr){
         client_error(fd, status, "Not found", msg);
     } else {
         fstat(ffd, &sbuf);
+        // if it is a directory, convert it to the index.html file
+        if(S_ISDIR(sbuf.st_mode)){
+       		if (strcmp(req.filename, ".") == 0) {
+       			strcpy(req.filename, "index.html");
+       		} else {
+       			strcat(req.filename, "/index.html");
+            }
+       		close(ffd);
+       		ffd = open(req.filename, O_RDONLY, 0);
+       		fstat(ffd, &sbuf);
+        }
         if(S_ISREG(sbuf.st_mode)){
             if (req.end == 0){
                 req.end = sbuf.st_size;
@@ -364,9 +375,6 @@ void process(int fd, struct sockaddr_in *clientaddr){
                 status = 206;
             }
             serve_static(fd, ffd, &req, sbuf.st_size);
-        } else if(S_ISDIR(sbuf.st_mode)){
-            status = 200;
-            handle_directory_request(fd, ffd, req.filename);
         } else {
             status = 400;
             char *msg = "Unknow Error";
@@ -379,17 +387,15 @@ void process(int fd, struct sockaddr_in *clientaddr){
 
 int main(int argc, char** argv){
     struct sockaddr_in clientaddr;
-    int default_port = 9999,
+    int default_port = 8080,
         listenfd,
         connfd;
     char buf[256];
-    char *path = getcwd(buf, 256);
     socklen_t clientlen = sizeof clientaddr;
     if(argc == 2) {
         if(argv[1][0] >= '0' && argv[1][0] <= '9') {
             default_port = atoi(argv[1]);
         } else {
-            path = argv[1];
             if(chdir(argv[1]) != 0) {
                 perror(argv[1]);
                 exit(1);
@@ -397,7 +403,6 @@ int main(int argc, char** argv){
         }
     } else if (argc == 3) {
         default_port = atoi(argv[2]);
-        path = argv[1];
         if(chdir(argv[1]) != 0) {
             perror(argv[1]);
             exit(1);
