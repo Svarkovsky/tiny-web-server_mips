@@ -22,7 +22,7 @@ With the help of tools ELFkickers from **Brian Raiter**, we were able to achieve
 
 Repository used: entware - mipssf-k3.4
 
-Useful link: 
+- Useful link: 
 [3.20.29 MIPS Options](https://gcc.gnu.org/onlinedocs/gcc/MIPS-Options.html)
 [Kickers of ELF](https://www.muppetlabs.com/~breadbox/software/elfkickers.html)
 
