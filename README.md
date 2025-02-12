@@ -27,9 +27,9 @@ Repository used: entware - mipssf-k3.4
 |            |[3.20.29 MIPS   Options](https://gcc.gnu.org/onlinedocs/gcc/MIPS-Options.html)
 |            |[Kickers of ELF](https://www.muppetlabs.com/~breadbox/software/elfkickers.html)
 
-|ASUS RT-AC57U v3|  |
-|------------|--|
-|            |`cat /proc/cpuinfo`
+|ASUS RT-AC57U v3  
+|------------|
+`cat /proc/cpuinfo`
 ```sh
 system type		: Qualcomm Atheros QCA5502 rev 0
 machine			: Qualcomm Atheros APJET01 reference board
