@@ -3,22 +3,22 @@ Notes
 
 Hi! I needed a small web server for my router without any bells and whistles. Actually, I found it by trial and error, I am completely satisfied, sharing.
 
-Read more.
+**Read more.**
 
 The historical line of borrowings, as I understand it, is as follows.
 
-Feng Shen (shenfeng) -> John M. Jones (jmjatlanta) -> I
+**Feng Shen** (shenfeng) -> **John M. Jones** (jmjatlanta) -> **I**
 
 To be honest, I didn't change anything fundamentally in the source code. I returned the ability to use in a local network, as it was in the source. The rest of the improvements made by John M. Jones (jmjatlanta) remained unchanged.
 
-I have achieved the binary (executable) file size optimization parameters in 8 kB. Admittedly, that's pretty small by today's standards, but it's almost certainly bigger than it needs to be. 
+I have achieved the binary (executable) file size optimization parameters in **8** kB. Admittedly, that's pretty small by today's standards, but it's almost certainly bigger than it needs to be. 
 
 If you can do better, please tell me how.
 
 > PS. 
-With the help of tools ELFkickers from **Brian Raiter**, we were able to achieve the size - 6732 byte.
+With the help of tools ELFkickers from **Brian Raiter**, we were able to achieve the size - **6732** byte.
 
-Example of use: `./tiny <dir_www> <port> `			// port default to 8080
+**Example** of use: `./tiny <dir_www> <port> `			// port default to 8080
 
 Repository used: entware - mipssf-k3.4
 
