@@ -29,7 +29,7 @@ Repository used: entware - mipssf-k3.4
 
 ASUS RT-AC57U v3
 ```sh
-cat /proc/cpuinfo
+`cat /proc/cpuinfo`
 system type		: Qualcomm Atheros QCA5502 rev 0
 machine			: Qualcomm Atheros APJET01 reference board
 processor		: 0
