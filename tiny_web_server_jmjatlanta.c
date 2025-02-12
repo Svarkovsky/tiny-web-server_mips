@@ -236,7 +236,8 @@ int open_listenfd(int port){
        on any IP address for this host */
     memset(&serveraddr, 0, sizeof(serveraddr));
     serveraddr.sin_family = AF_INET;
-    serveraddr.sin_addr.s_addr = htonl(INADDR_LOOPBACK);
+    // serveraddr.sin_addr.s_addr = htonl(INADDR_LOOPBACK);
+	serveraddr.sin_addr.s_addr = htonl(INADDR_ANY);
     serveraddr.sin_port = htons((unsigned short)port);
     if (bind(listenfd, (SA *)&serveraddr, sizeof(serveraddr)) < 0)
         return -1;
@@ -443,3 +444,4 @@ int main(int argc, char** argv){
 
     return 0;
 }
+
