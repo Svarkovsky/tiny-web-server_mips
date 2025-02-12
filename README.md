@@ -48,7 +48,7 @@ VCEI exceptions		: not available
 |            |[3.20.29 MIPS   Options](https://gcc.gnu.org/onlinedocs/gcc/MIPS-Options.html)
 |            |[Kickers of ELF](https://www.muppetlabs.com/~breadbox/software/elfkickers.html)
 
-John's Notes
+John's Notes - John M. Jones (jmjatlanta)
 ============
 
 I modified it to not do a directory listing. Instead, I tack on index.html. I also
