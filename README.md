@@ -18,12 +18,13 @@ If you can do better, please tell me how.
 PS. 
 With the help of tools ELFkickers from Brian Raiter, we were able to achieve the size - 6732 byte.
 
-Example of use: ./tiny <dir_www> <port>			// port default to 8080
+Example of use: `./tiny <dir_www> <port> `			// port default to 8080
 
 Repository used: entware - mipssf-k3.4
 
 Useful link: 
 [3.20.29 MIPS Options](https://gcc.gnu.org/onlinedocs/gcc/MIPS-Options.html)
+
 [Kickers of ELF](https://www.muppetlabs.com/~breadbox/software/elfkickers.html)
 
 
