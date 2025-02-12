@@ -22,8 +22,10 @@ Example of use: ./tiny <dir_www> <port>			// port default to 8080
 
 Repository used: entware - mipssf-k3.4
 
-Useful link: https://gcc.gnu.org/onlinedocs/gcc/MIPS-Options.html
-             https://www.muppetlabs.com/~breadbox/software/tiny/home.html
+Useful link: 
+[3.20.29 MIPS Options](https://gcc.gnu.org/onlinedocs/gcc/MIPS-Options.html)
+[Kickers of ELF](https://www.muppetlabs.com/~breadbox/software/elfkickers.html)
+
 
 ASUS RT-AC57U v3
 cat /proc/cpuinfo
