@@ -1,5 +1,6 @@
 CC = gcc 
 CFLAGS = -std=c99 \
+	-EB \
 	-march=74kc -mips16 -mdsp \
 	-O2 \
 	-flto \
